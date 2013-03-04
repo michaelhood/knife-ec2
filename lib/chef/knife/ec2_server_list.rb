@@ -81,7 +81,7 @@ class Chef
           server_list << server.flavor_id.to_s
           server_list << server.image_id.to_s
           server_list << server.key_name.to_s
-          server_list << server.groups.join(", ")
+          server_list << server.groups.uniq.join(", ")
           
           if config[:tags]
             config[:tags].split(",").each do |tag_name|
